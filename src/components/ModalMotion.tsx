@@ -4,7 +4,7 @@ import { ReactNode, useEffect } from 'react';
 import { Backdrop, Box, CSSObject, IconButton, styled, TypographyVariant, useTheme } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from 'framer-motion';
-import { fbbackground, fbborderRadius, fbboxShadow, fbcolor, fbpadding } from '@/constant';
+import { fbbackground, fbborderRadius, fbboxShadow, fbcolor } from '../constant';
 import { PipelineSolucoesTypographyTokens } from '@pipelinesolucoes/theme';
 
 export const BoxTitulo = styled(Box, {
