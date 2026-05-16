@@ -34,7 +34,7 @@ interface ModalMotionProps {
   closeOnBackdrop?: boolean;
   closeOnEsc?: boolean;
   showCloseButton?: boolean;
-  backgroundColor: string;
+  backgroundColor?: string;
   backgroundImage?: string;
   boxShadow?: string; 
   iconCloseColor?: string;  
@@ -51,7 +51,7 @@ export default function ModalMotion({
   closeOnBackdrop = false,
   closeOnEsc = true,
   showCloseButton = true,
-  backgroundColor,
+  backgroundColor = "white",
   boxShadow = "None",
   iconCloseColor = "black",
   backgroundImage = "None",
@@ -110,6 +110,9 @@ export default function ModalMotion({
                 backgroundImage: backgroundImage && backgroundImage !== "None"
                   ? `url(${backgroundImage})`
                   : "none",
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',   
                 borderRadius: borderRadius,
                 padding: '8px 20px 20px 20px',
                 margin: '0 auto',
