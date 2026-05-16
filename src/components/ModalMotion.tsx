@@ -6,15 +6,16 @@ import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const BoxTitulo = styled(Box, {
-  shouldForwardProp: (prop) => !["variant", "color", "align"].includes(prop as string),
+  shouldForwardProp: (prop) => !["variant", "color", "align", 'padding'].includes(prop as string),
  }
-)<{variant?: TypographyVariant | undefined; color: string; align: string }>(({ theme, variant = 'subtitle1', color, align }) => ({
+)<{variant?: TypographyVariant | undefined; color: string; align: string; padding: string; }>
+(({ theme, variant = 'subtitle1', color, align, padding} ) => ({
   display: 'grid',
   gridTemplateColumns: '1fr auto',
   alignItems: 'center',
   justifyItems: align,
   minHeight: 40,
-  padding: '8px 0 16px 0',
+  padding: padding,
   gap: '16px',
   color: color,
   ...theme.typography[variant],
@@ -37,6 +38,7 @@ interface ModalMotionProps {
   variantTitulo?: TypographyVariant;
   colorTitulo?: string;
   alignTitulo?: string;
+  paddingTitulo?: string;
   closeOnBackdrop?: boolean;
   closeOnEsc?: boolean;
   showCloseButton?: boolean;
@@ -55,14 +57,15 @@ export default function ModalMotion({
   height = 'auto',
   titulo = '',
   variantTitulo = 'subtitle1',
-  colorTitulo = "black",
+  colorTitulo = "#000",
   alignTitulo = "flex-start",
+  paddingTitulo = '8px 0 16px 0',
   closeOnBackdrop = false,
   closeOnEsc = true,
   showCloseButton = true,
-  backgroundColor = "white",
+  backgroundColor = "#fff",
   boxShadow = "None",
-  iconCloseColor = "black",
+  iconCloseColor = "#000",
   backgroundImage = "None",
   borderRadius = "0",
 }: ModalMotionProps) {
@@ -139,7 +142,7 @@ export default function ModalMotion({
               }}
             >
               {(titulo || showCloseButton) && (
-                <BoxTitulo variant={variantTitulo} color={colorTitulo} align={alignTitulo}>
+                <BoxTitulo variant={variantTitulo} color={colorTitulo} align={alignTitulo} padding={paddingTitulo}>
                   <div>{titulo}</div>
                   {showCloseButton && (
                     <IconButton onClick={onClose} aria-label="Fechar modal">
