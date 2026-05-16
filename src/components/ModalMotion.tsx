@@ -1,20 +1,23 @@
 'use client';
 
 import { ReactNode, useEffect } from 'react';
-import { Backdrop, Box, IconButton, styled } from '@mui/material';
+import { Backdrop, Box, IconButton, styled, TypographyVariant } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export const BoxTitulo = styled(Box)(({ theme }) => ({
+export const BoxTitulo = styled(Box, {
+  shouldForwardProp: (prop) => !["variant", "color", "align"].includes(prop as string),
+ }
+)<{variant?: TypographyVariant | undefined; color: string; align: string }>(({ theme, variant = 'subtitle1', color, align }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr auto',
   alignItems: 'center',
-  justifyItems: 'flex-start',
+  justifyItems: align,
   minHeight: 40,
   padding: '8px 0 16px 0',
   gap: '16px',
-  color: theme.palette.text.primary,
-  ...theme.typography.subtitle1,
+  color: color,
+  ...theme.typography[variant],
 }));
 
 export const CloseIconStyled = styled(CloseIcon, {
@@ -31,6 +34,9 @@ interface ModalMotionProps {
   width?: string | number;
   height?: string | number;
   titulo?: string;
+  variantTitulo?: TypographyVariant;
+  colorTitulo?: string;
+  alignTitulo?: string;
   closeOnBackdrop?: boolean;
   closeOnEsc?: boolean;
   showCloseButton?: boolean;
@@ -48,6 +54,9 @@ export default function ModalMotion({
   width,
   height = 'auto',
   titulo = '',
+  variantTitulo = 'subtitle1',
+  colorTitulo = "black",
+  alignTitulo = "flex-start",
   closeOnBackdrop = false,
   closeOnEsc = true,
   showCloseButton = true,
@@ -130,8 +139,8 @@ export default function ModalMotion({
               }}
             >
               {(titulo || showCloseButton) && (
-                <BoxTitulo>
-                  <Box component="div">{titulo}</Box>
+                <BoxTitulo variant={variantTitulo} color={colorTitulo} align={alignTitulo}>
+                  <div>{titulo}</div>
                   {showCloseButton && (
                     <IconButton onClick={onClose} aria-label="Fechar modal">
                       <CloseIconStyled iconColor={iconCloseColor}/>
