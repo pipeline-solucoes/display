@@ -11,6 +11,8 @@ Este pacote faz parte do ecossistema de componentes da **Pipeline Soluções**.
 A biblioteca inclui os seguintes componentes:
 
 - **ModalMotion**
+  Modal com animação de entrada/saída utilizando Framer Motion e integração
+  com tokens do Design System Pipeline Soluções.
 
 - **VisualizadorPdf**
 
@@ -38,9 +40,18 @@ yarn add @pipelinesolucoes/display
 ```
 
 ## 🚀 Uso básico
-
 ```
+import { ModalMotion } from '@pipelinesolucoes/display';
 
+ <ModalMotion
+    open={open}
+    onClose={() => setOpen(false)}
+    titulo="Detalhes do usuário"
+    width={500}
+ >
+   <div>Conteúdo do modal</div>
+ </ModalMotion>
+ 
 ```
 
 ## 🧩 Uso em Design Systems

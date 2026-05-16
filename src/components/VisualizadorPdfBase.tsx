@@ -31,13 +31,16 @@ export type VisualizadorPdfBaseProps = {
   width?: string;
   height?: string;
   iconColor?: string;
+  scale?: number;
 };
 
 export function VisualizadorPdfBase({ 
   fileUrl, 
   width = '100%', 
   height = "480px", 
-  iconColor = "black" }: VisualizadorPdfBaseProps) {
+  iconColor = "black",
+  scale = 1.5
+}: VisualizadorPdfBaseProps) {
 
   const theme = useTheme();
   const [numPages, setNumPages] = useState<number>(0);
@@ -76,7 +79,6 @@ export function VisualizadorPdfBase({
           <ProximoIcon iconColor={iconColor}/>
         </IconButton>       
       </Stack>
-
       
       <Box
         sx={{
@@ -100,7 +102,7 @@ export function VisualizadorPdfBase({
             pageNumber={pageNumber}
             renderTextLayer={false}
             renderAnnotationLayer={false}
-            scale={1.5}
+            scale={scale}
           />          
         </Document>
       </Box>
