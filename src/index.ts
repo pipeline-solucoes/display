@@ -2,7 +2,8 @@
 import '@pipelinesolucoes/theme';
 
 export { default as ModalMotion } from "./components/ModalMotion";
-export { default as VisualizadorPdf } from "./components/VisualizadorPdf";
+export { VisualizadorPdfBase } from "./components/VisualizadorPdfBase";
+export type { VisualizadorPdfBaseProps } from "./components/VisualizadorPdfBase";
 
 export type { BorderProps } from "./types/style/BorderProps";
 export type { LayoutProps } from "./types/style/LayoutProps";
