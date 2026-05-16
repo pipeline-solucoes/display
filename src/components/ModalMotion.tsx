@@ -35,8 +35,10 @@ interface ModalMotionProps {
   closeOnEsc?: boolean;
   showCloseButton?: boolean;
   backgroundColor: string;
+  backgroundImage?: string;
   boxShadow?: string; 
-  iconCloseColor?: string;
+  iconCloseColor?: string;  
+  borderRadius?: string;
 }
 
 export default function ModalMotion({
@@ -52,6 +54,8 @@ export default function ModalMotion({
   backgroundColor,
   boxShadow = "None",
   iconCloseColor = "black",
+  backgroundImage = "None",
+  borderRadius = "0",
 }: ModalMotionProps) {
 
   useEffect(() => {
@@ -103,7 +107,10 @@ export default function ModalMotion({
               sx={{
                 position: 'relative',
                 bgcolor: backgroundColor,
-                borderRadius: 2,
+                backgroundImage: backgroundImage && backgroundImage !== "None"
+                  ? `url(${backgroundImage})`
+                  : "none",
+                borderRadius: borderRadius,
                 padding: '8px 20px 20px 20px',
                 margin: '0 auto',
                 width: {
@@ -122,7 +129,6 @@ export default function ModalMotion({
               {(titulo || showCloseButton) && (
                 <BoxTitulo>
                   <Box component="div">{titulo}</Box>
-
                   {showCloseButton && (
                     <IconButton onClick={onClose} aria-label="Fechar modal">
                       <CloseIconStyled iconColor={iconCloseColor}/>

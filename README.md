@@ -10,9 +10,9 @@ Este pacote faz parte do ecossistema de componentes da **Pipeline Soluções**.
 
 A biblioteca inclui os seguintes componentes:
 
-- **ConfirmMessage**
-  Componente que exibe uma mensagem com um ícone opcional e ações de confirmação, renderizando dois botões: "Cancelar" e "OK".
+- **ModalMotion**
 
+- **VisualizadorPdf**
 
 ---
 
