@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
   },
 
   // Transpila pacotes específicos
-  transpilePackages: ["notification"],
+  transpilePackages: ["display"],
 
   // Configura saída standalone
   output: "standalone",

@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 
-export const notificationThemeOptions: ThemeOptions = {
+export const displayThemeOptions: ThemeOptions = {
   pipelinesolucoes: {
     notification: {
         background: '#fff', 

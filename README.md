@@ -1,6 +1,6 @@
-# @pipelinesolucoes/notification
+# @pipelinesolucoes/display
 
-Biblioteca de **componentes de notificacao para React**, desenvolvida para **padronização visual**, **reutilização** e **escalabilidade** em aplicações modernas e design systems.
+Biblioteca de **componentes de display para React**, desenvolvida para **padronização visual**, **reutilização** e **escalabilidade** em aplicações modernas e design systems.
 
 Este pacote faz parte do ecossistema de componentes da **Pipeline Soluções**.
 
@@ -13,11 +13,6 @@ A biblioteca inclui os seguintes componentes:
 - **ConfirmMessage**
   Componente que exibe uma mensagem com um ícone opcional e ações de confirmação, renderizando dois botões: "Cancelar" e "OK".
 
-- **TermsAndPrivacyBar**    
-
-- **TermsAndPrivacyCard**  
-  Componente que renderiza um card flutuante (fixed) para consentimento de cookies, exibindo links para **Termos de Uso** e **Política de Privacidade** e dois botões:
-  **Cancelar** (define cookieConsent como "false") e **Ok** (define cookieConsent como "true").
 
 ---
 
@@ -36,24 +31,16 @@ A biblioteca inclui os seguintes componentes:
 ## 📥 Instalação
 
 ```bash
-npm install @pipelinesolucoes/notification 
+npm install @pipelinesolucoes/display 
 ou
-yarn add @pipelinesolucoes/notification
+yarn add @pipelinesolucoes/display
 
 ```
 
 ## 🚀 Uso básico
 
 ```
-import { Actionnotification } from "@pipelinesolucoes/notification";
 
-export function Example() {
-  return (
-    <Actionnotification variant="contained" color="primary">
-      Ação
-    </Actionnotification>
-  );
-}
 ```
 
 ## 🧩 Uso em Design Systems
@@ -106,7 +93,7 @@ Após adquirir a licença, você receberá um Project ID e uma License Key.
 No projeto, configure as variáveis de ambiente:
 
 PIPESOL_PROJECT_ID=meu-projeto
-PIPESOL_notification_LICENSE_KEY=SUA-LICENSE-KEY-AQUI
+PIPESOL_display_LICENSE_KEY=SUA-LICENSE-KEY-AQUI
 
 
 Atualmente, a validação é local e não bloqueante, servindo como preparação para automação futura.
@@ -128,7 +115,7 @@ Este projeto segue Semantic Versioning (SemVer):
 Para listar as versões publicadas:
 
 ```
-npm view @pipelinesolucoes/notification versions --json
+npm view @pipelinesolucoes/display versions --json
 ```
 
 ## 🚀 Processo de publicação
