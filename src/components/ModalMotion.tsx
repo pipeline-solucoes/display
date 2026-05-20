@@ -11,7 +11,7 @@ export const BoxTitulo = styled(Box, {
   shouldForwardProp: (prop) => !["variant", "color", "align", 'padding'].includes(prop as string),
  }
 )<{typo?: CSSObject | PipelineSolucoesTypographyTokens; color: string; align: string; padding: string; }>
-(({ theme, typo, color, align, padding} ) => ({
+(({ typo, color, align, padding} ) => ({
   display: 'grid',
   gridTemplateColumns: '1fr auto',
   alignItems: 'center',
@@ -31,8 +31,17 @@ export const CloseIconStyled = styled(CloseIcon, {
 }));
 
 interface ModalMotionProps {  
-  width?: string | number;
-  height?: string | number;
+  widthXs?: string | number;
+  widthSm?: string | number;
+  widthMd?: string | number;
+  widthLg?: string | number;
+  widthXl?: string | number;
+
+  heightXs?: string | number;
+  heightSm?: string | number;
+  heightMd?: string | number;
+  heightLg?: string | number;
+  heightXl?: string | number;
   
   backgroundColor?: string;
   backgroundImage?: string;
@@ -80,16 +89,55 @@ interface ModalMotionProps {
  * @param {import('react').ReactNode} children
  * Conteúdo renderizado dentro do modal.
  *
- * @param {string | number} [width]
- * Largura do modal.
- *
- * Comportamento responsivo:
- * - `xs`: `calc(100% - 32px)`
- * - `sm`: `360px`
- * - `md+`: valor informado na prop ou fallback interno
- *
- * @param {string | number} [height]
- * Altura do modal.
+ * @param {string | number} [widthXs]
+ * Largura do modal no breakpoint xs.
+ * Ordem:
+ * widthXs → calc(100% - 32px)
+ * 
+ * @param {string | number} [widthSm]
+ * Largura do modal no breakpoint sm.
+ * Ordem:
+ * widthSm → 360px
+ * 
+ * @param {string | number} [widthMd]
+ * Largura do modal no breakpoint md.
+ * Ordem:
+ * widthMd → 360px
+ * 
+ * @param {string | number} [widthLg]
+ * Largura do modal no breakpoint lg.
+ * Ordem:
+ * widthLg → 500px
+ * 
+ * @param {string | number} [widthXl]
+ * Largura do modal no breakpoint xl.
+ * Ordem:
+ * widthXl → 500px
+ * 
+ * @param {string | number} [heightXs]
+ * Altura do modal no breakpoint xs.
+ * Ordem:
+ * heightXs → calc(100% - 32px)
+ * 
+ * @param {string | number} [heightSm]
+ * Altura do modal no breakpoint sm.
+ * Ordem:
+ * heightSm → 360px
+ * 
+ * @param {string | number} [heightMd]
+ * Altura do modal no breakpoint md.
+ * Ordem:
+ * heightMd → 360px
+ * 
+ * @param {string | number} [heightLg]
+ * Altura do modal no breakpoint lg.
+ * Ordem:
+ * heightLg → 500px
+ * 
+ * @param {string | number} [heightXl]
+ * Altura do modal no breakpoint xl.
+ * Ordem:
+ * heightXl → 500px
  *
  * @param {string} [backgroundColor]
  * Cor de fundo do container principal.
@@ -267,8 +315,19 @@ export default function ModalMotion({
   open,
   onClose,
   children,
-  width,
-  height,
+  
+  widthXs,
+  widthSm,
+  widthMd,
+  widthLg,
+  widthXl,
+
+  heightXs,
+  heightSm,
+  heightMd,
+  heightLg,
+  heightXl,
+  
   titulo = '',
   variantTitulo,
   colorTitulo,
@@ -361,14 +420,20 @@ export default function ModalMotion({
                 padding: '8px 20px 20px 20px',
                 margin: '0 auto',
                 width: {
-                  xs: 'calc(100% - 32px)',
-                  sm: '360px',
-                  md: width ?? '360px',
-                  lg: width ?? '500px',
-                  xl: width ?? '500px',
+                  xs: widthXs ?? 'calc(100% - 32px)',
+                  sm: widthSm ?? '360px',
+                  md: widthMd ?? '360px',
+                  lg: widthLg ?? '500px',
+                  xl: widthXl ?? '500px',
                 },
-                height,
-                maxHeight: '90vh',
+                height : {
+                  xs: heightXs ?? 'calc(100% - 32px)',
+                  sm: heightSm ?? '360px',
+                  md: heightMd ?? '360px',
+                  lg: heightLg ?? '500px',
+                  xl: heightXl ?? '500px',
+                },
+                maxHeight: '85vh',
                 overflowY: 'auto',                
                 boxShadow: bs,
               }}
